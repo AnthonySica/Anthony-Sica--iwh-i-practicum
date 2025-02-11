@@ -5,5 +5,33 @@ html(lang="en")
         meta(name="viewport" content="width=device-width, initial-scale=1")
         link(rel="stylesheet", href="/css/style.css")
     body
+        h1 Update Custom Object Form | Integrating With HubSpot I Practicum
             p <BR> 
             p #[a(href="/") Return to Home Page]
+
+            .form-wrapper
+                p <BR> 
+                h1 Please Submit a new car option
+                p <BR> 
+                form(action="/submit", method="post")
+                    label(for="name") Name:
+                    input(type="text", id="name", name="name")
+                    br
+                    label(for="model") Model:
+                    input(type="text", id="model", name="model")
+                    br
+                    label(for="year") Year:
+                    input(type="text", id="year", name="year")
+                    br
+                    label(for="color") Color:
+                    select(name='color' placeholder="color" id="color")
+                        option(value='Black') Black
+                        option(value='Blue') Blue
+                        option(value='Red') Red
+                        option(value='Yellow') Yellow
+                    br
+                    label(for="price") Price:
+                    input(type="text", id="price", name="price")
+                    br
+                    
+                    button(type="submit") Submit

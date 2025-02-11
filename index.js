@@ -45,12 +45,55 @@ app.get('/' , async (req, res) => {
 // * Code for Route 2 goes here
 
 app.get('/update-cobj', (req, res) => {
-    res.render('update-cobj');
+    res.render('updates');
     
   });
 
 // TODO: ROUTE 3 - Create a new app.post route for the custom objects form to create or update your custom object data. Once executed, redirect the user to the homepage.
 // * Code for Route 3 goes here
+app.post('/submit', async (req, res) => {
+    const { name, model, year, color, price } = req.body;
+    // Process the form data (e.g., save to a database)
+    console.log('Received form data:', { name, model, year, color, price  });
+    // Define the custom object data
+const make = `${name}`;
+const modello = `${model}`;
+const modelyear = `${year}`;
+const model_year = `${year}`;
+const model_price = `${price}`;
+const model_color = `${color}`
+
+const customObjectData = {
+    properties: {
+        name:  make,
+        model: modello,
+        model_year: model_year,
+        price: model_price,
+        color: model_color
+
+    }
+};
+    
+    console.log(customObjectData);
+    
+    const fastCars = 'https://api.hubapi.com/crm/v3/objects/2-164595241';
+    try {
+        const response = await axios.post(fastCars, customObjectData, { headers});
+       // res.json(response.data.results);
+
+    }catch (error){
+        console.log(error);
+        console.log(process.env.ACCESSToken);
+       
+    }
+
+    res.redirect("/");
+
+  });
+
+
+
+
 
 /** 
 * * This is sample code to give you a reference for how you should structure your calls. 
