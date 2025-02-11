@@ -1,0 +1,29 @@
+doctype html
+html(lang="en")
+    head
+        title Fast
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+        link(rel="stylesheet", href="/css/style.css")
+    body
+        h1 Fast Cars Custom Objects        
+            
+            p <BR> 
+            p Not Cool Enough?  #[a(href="/update-cobj") Add or Update this Table]
+            <br>
+             #table-wrapper
+                table#desc
+                    tr
+                    th Name
+                    th Model
+                    th Model Year
+                    th Color
+                    th Price
+                    tr
+                    each fastCar in fastCars
+                        br
+                        td #{fastCar.properties.name}  
+                        td #{fastCar.properties.model}  
+                        td #{fastCar.properties.model_year}
+                        td #{fastCar.properties.color}  
+                        td #{fastCar.properties.price}
+                        tr

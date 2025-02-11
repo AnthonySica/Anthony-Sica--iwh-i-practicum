@@ -27,7 +27,7 @@ app.get('/' , async (req, res) => {
     try {
         const response = await axios.get(fastCars, { headers});
        // res.json(response.data.results);
-        res.render('fastcars', {
+        res.render('homepage', {
             fastCars: response.data.results
         });
 
